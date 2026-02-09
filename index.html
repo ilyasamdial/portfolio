@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="icon" href="images/icon.png">
+</head>
+
+<body>
+    <audio id="music" loop preload="auto">
+        <source src="music/interstellar.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <div id="cookie-banner">
+        <p>This site uses cookies to play background music 🎵</p>
+        <button id="accept">Accept</button>
+    </div>
+
+
+    <header>
+        <nav>
+            <a href="#"><i class="fa-solid fa-code fs-2 ps-3"></i></a>
+            <ul>
+                <li><a href="#main">main</a></li>
+                <li><a href="#projects">project</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" id="main">
+            <div class="row">
+                <div class="contenu col-12 col-md-8">
+                    <h1><span class="name">Ilyas Amdial</span>— Full Stack Developer</h1>
+                    <p>I design,
+                        build,
+                        and maintain web applications from front-end to back-end. Skilled in creating responsive
+                        user interfaces,
+                        scalable server-side logic,
+                        and modern digital experiences from concept to deployment. </p>
+                </div>
+                <div class="img col-12 col-md-4 mt-4 mt-md-0"><img src="images/ilyas.jpg" alt="me"></div>
+            </div>
+        </section>
+        <section class="projets" id="projects">
+            <h3 class="hidden">my projects</h3>
+            <div class="group hidden">
+                <figure class="project1"><a href="https://ilyasamdial.github.io/newofppt/" target="_blank"><img
+                            src="images/projet1.png" alt="project"></a>
+                    <figcaption>newofppt is a modern digital project inspired by the OFPPT system,
+                        designed to simplify access to professional training information and career opportunities.
+                    </figcaption>
+                </figure>
+                <figure class="project2"><a href="https://ilyasamdial.github.io/texmo/ " target="_blank"><img
+                            src="images/projet2.png" alt="projet2"></a>
+                    <figcaption>Coffee is a rich and aromatic beverage made from carefully roasted beans,
+                        designed to energize the mind and delight the senses. It brings warmth,
+                        focus,
+                        and comfort in every cup,
+                        making it a perfect companion for daily moments of productivity and relaxation.
+                    </figcaption>
+                </figure>
+                <figure class="project3"><a href="https://ilyasamdial.github.io/taco-html/" target="_blank"><img
+                            src="images/projet3.png" alt="projet2"></a>
+                    <figcaption>Taco Shop is a vibrant food spot dedicated to serving fresh,
+                        flavorful tacos made with quality ingredients. It offers a variety of fillings and bold
+                        sauces in a casual,
+                        welcoming atmosphere,
+                        giving customers a quick and satisfying street-food experience. </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="contact" id="contact">
+            <div class="social-media">
+                <div class="fb"><a href="https://web.facebook.com/ilyas.amdial.52" target="_blank"><i
+                            class="fa-brands fa-facebook-f fs-3"></i></a></div>
+                <div class="linkedin"><a href="https://www.linkedin.com/in/ilyas-amdial-202510390/" target="_blank"><i
+                            class="fa-brands fa-linkedin-in fs-3"></i></a></div>
+                <div class="insta"><a href="https://www.instagram.com/ilyas__amdial" target="_blank"><i
+                            class="fa-brands fa-instagram fs-3"></i></a></div>
+                <div class="github"><a href="https://github.com/ilyasamdial" target="_blank"><i
+                            class="fa-brands fa-github fs-3"></i></a></div>
+            </div>
+            <div class="info">
+                <div class="phone"><i class="fa-solid fa-phone fs-5"></i>
+                    <p>0699087292</p>
+                </div>
+                <div class="gmail"><i class="fa-solid fa-envelope fs-5"></i>
+                    <p>amdialilyas@gmail.com</p>
+                </div>
+                <div class="adresse"><i class="fa-solid fa-location-dot fs-5"></i>
+                    <p>Casablanca / Attacharouk</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">© 2026 Ilyas Amdial. All rights reserved.</p>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+</body>
+<script>const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    });
+    document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
+<script>
+    const music = document.getElementById("music");
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept");
+
+    // Play music only when user clicks the Accept button
+    acceptBtn.addEventListener("click", () => {
+        document.cookie = "musicAccepted=true; max-age=31536000; path=/"; // save preference
+        banner.style.display = "none"; // hide banner
+        music.play().catch(err => console.log("Audio play blocked:", err));
+    });
+
+    // Hide the banner if the user already accepted (do NOT autoplay)
+    if (document.cookie.includes("musicAccepted=true")) {
+        banner.style.display = "none";
+    }
+</script>
+
+
+
+</html>
